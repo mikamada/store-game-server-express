@@ -37,17 +37,37 @@
 								<div class="card-header">
 									<h3 class="card-title">Form Tambah Nominal</h3>
 								</div>
-								<form action="/category/create" method="POST">
+								<form action="/nominal/create" method="POST">
 									<div class="card-body">
 										<div class="form-group">
-											<label>Coin Name</label>
-											<select class="form-control select2" style="width: 100%">
-												<!-- <option selected="selected">Alabama</option> -->
+											<label>Nama Coin</label>
+											<select
+												class="form-control select"
+												style="width: 100%"
+												name="coinName">
+												<option selected="selected">Pilih koin</option>
 												<option value="Diamond">Diamond</option>
 												<option value="Gold">Gold</option>
 												<option value="Jewel">Jewel</option>
-												
 											</select>
+										</div>
+										<div class="form-group">
+											<label for="coinQuantity">Jumlah koin</label>
+											<input
+												type="number"
+												name="coinQuantity"
+												class="form-control"
+												id="coinQuantity"
+												placeholder="Masukan jumlah koin" />
+										</div>
+										<div class="form-group">
+											<label for="price">Harga</label>
+											<input
+												type="number"
+												name="price"
+												class="form-control"
+												id="price"
+												placeholder="Masukan harga" />
 										</div>
 									</div>
 									<div class="card-footer">

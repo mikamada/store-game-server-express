@@ -21,71 +21,79 @@
 	<section class="content">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="card-body">
-					<div class="card card-primary">
-						<div class="card-header">
-							<h3 class="card-title">Form Tambah Voucher</h3>
-						</div>
-						<form
-							action="/voucher/create"
-							method="POST"
-							enctype="multipart/form-data">
-							<div class="card-body">
-								<div class="form-group">
-									<label for="name">Nama Game</label>
-									<input
-										type="text"
-										name="name"
-										class="form-control"
-										id="name"
-										placeholder="Masukan nama game" />
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="card card-primary">
+								<div class="card-header">
+									<h3 class="card-title">Form Tambah Voucher</h3>
 								</div>
-								<div class="form-group">
-									<label>Kategori Game</label>
-									<select
-										class="form-control select"
-										style="width: 100%"
-										name="category">
-										<option selected="selected">Pilih kategori</option>
-										<% category.forEach((item) => { %>
-										<option value="<%= item._id %>"><%= item.name %></option>
-										<% }) %>
-									</select>
-								</div>
-								<div class="form-group">
-									<label>Nominal</label>
-									<div class="select2-purple">
-										<select
-											class="form-control select2"
-											multiple="multiple"
-											data-placeholder="Pilih nominal"
-											style="width: 100%"
-											name="nominals"
-											required>
-											<% nominal.forEach((item) => { %>
-											<option value="<%= item._id %>">
-												<%= item.coinName %> - <%= item.coinQuantity %>
-											</option>
-											<% }) %>
-										</select>
+								<form
+									action="/voucher/create"
+									method="POST"
+									enctype="multipart/form-data">
+									<div class="card-body">
+										<div class="form-group">
+											<label for="name">Nama Game</label>
+											<input
+												type="text"
+												name="name"
+												class="form-control"
+												id="name"
+												placeholder="Masukan nama game" />
+										</div>
+										<div class="form-group">
+											<label>Kategori Game</label>
+											<select
+												class="form-control select"
+												style="width: 100%"
+												name="category">
+												<option selected="selected">Pilih kategori</option>
+												<% category.forEach((item) => { %>
+												<option value="<%= item._id %>">
+													<%= item.name %>
+												</option>
+												<% }) %>
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Nominal</label>
+											<div class="select2-purple">
+												<select
+													class="form-control select2"
+													multiple="multiple"
+													data-placeholder="Pilih nominal"
+													style="width: 100%"
+													name="nominals"
+													required>
+													<% nominal.forEach((item) => { %>
+													<option value="<%= item._id %>">
+														<%= item.coinName %> - <%= item.coinQuantity %>
+													</option>
+													<% }) %>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="image">Thumbnail</label>
+											<input
+												type="file"
+												name="image"
+												class="form-control"
+												id="image"
+												placeholder="Masukan gambar" />
+											<br />
+											<img id="preview" />
+										</div>
 									</div>
-								</div>
-								<div class="form-group">
-									<label for="image">Thumbnail</label>
-									<input
-										type="file"
-										name="image"
-										class="form-control"
-										id="image"
-										placeholder="Masukan gambar" />
-									<br />
-									<img id="preview" />
-								</div>
+									<div class="card-footer">
+										<button type="submit" class="btn btn-primary">
+											Simpan
+										</button>
+									</div>
+								</form>
 							</div>
-							<div class="card-footer">
-								<button type="submit" class="btn btn-primary">Simpan</button>
-							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>

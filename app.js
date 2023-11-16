@@ -8,9 +8,10 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 
-var dashboardRouter = require('./app/dashboard/router');
-var categoryRouter = require('./app/category/router');
-var nominalRouter = require('./app/nominal/router');
+const dashboardRouter = require('./app/dashboard/router');
+const categoryRouter = require('./app/category/router');
+const nominalRouter = require('./app/nominal/router');
+const voucherRouter = require('./app/voucher/router');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use("/adminlte", express.static(path.join(__dirname, '/node_modules/admin-lt
 app.use('/', dashboardRouter);
 app.use('/category', categoryRouter);
 app.use('/nominal', nominalRouter);
+app.use('/voucher', voucherRouter);
 app.use('/users', categoryRouter);
 
 // catch 404 and forward to error handler

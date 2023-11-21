@@ -13,8 +13,7 @@ module.exports = {
 
       const alert = { message: alertMessage, status: alertStatus };
       const voucher = await Voucher.find().populate('category').populate('nominals');
-      console.log({ voucher })
-
+    
       res.render('admin/voucher/view_voucher', {
         voucher, alert, title: 'Halaman Voucher',
         name: req.session.user.name,

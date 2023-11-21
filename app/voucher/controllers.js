@@ -15,7 +15,10 @@ module.exports = {
       const voucher = await Voucher.find().populate('category').populate('nominals');
       console.log({ voucher })
 
-      res.render('admin/voucher/view_voucher', { voucher, alert })
+      res.render('admin/voucher/view_voucher', {
+        voucher, alert, title: 'Halaman Voucher',
+        name: req.session.user.name,
+      })
     } catch (error) {
       console.log(error)
     }
@@ -24,7 +27,10 @@ module.exports = {
     try {
       const category = await Category.find();
       const nominal = await Nominal.find();
-      res.render('admin/voucher/create', { category, nominal })
+      res.render('admin/voucher/create', {
+        category, nominal, title: 'Halaman Tambah Voucher',
+        name: req.session.user.name,
+      })
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
       req.flash("alertStatus", "danger")
@@ -88,7 +94,9 @@ module.exports = {
       res.render('admin/voucher/edit', {
         voucher,
         category,
-        nominal
+        nominal,
+        title: 'Halaman Edit Voucher',
+        name: req.session.user.name,
       })
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -177,7 +185,7 @@ module.exports = {
 
   },
 
-  actionStatus: async (req, res) => { 
+  actionStatus: async (req, res) => {
     try {
       const { id } = req.params;
       let voucher = await Voucher.findOne({ _id: id });
@@ -190,7 +198,7 @@ module.exports = {
       req.flash("alertStatus", "success");
 
       res.redirect('/voucher')
-      
+
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
       req.flash("alertStatus", "danger")
